@@ -25,7 +25,7 @@ resource "aws_instance" "devops-training" {
   subnet_id                   = "subnet-2577d16d"
 
   tags = {
-    Name = "devops-training-node"
+    Name = var.name_tag
   }
 }
 
