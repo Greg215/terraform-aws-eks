@@ -15,3 +15,7 @@ variable "aws_region" {
 variable "name_tag" {
   default = "test"
 }
+
+variable "vpc_security_group" {
+  default = ""
+}

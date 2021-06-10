@@ -15,3 +15,11 @@ variable "aws_region" {
 variable "name_tag" {
   default = "test"
 }
+
+variable "vpc_id" {
+  default = "vpc-fdcf029b"
+}
+
+variable "sg_name_tag" {
+  default = "allow-all"
+}
