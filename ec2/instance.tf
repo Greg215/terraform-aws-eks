@@ -6,7 +6,7 @@ resource "aws_instance" "devops-training" {
   key_name                    = "devops-training"
   monitoring                  = false
   vpc_security_group_ids      = [var.vpc_security_group]
-  subnet_id                   = "subnet-2577d16d"
+  subnet_id                   = var.subnet_id
 
   tags = {
     Name = var.name_tag

@@ -17,3 +17,7 @@ output "instance-pri-ip" {
 output "training-dns" {
   value = module.test_instance.training-dns
 }
+
+output "pub-subnets" {
+  value = module.subnets.public_subnet_ids
+}

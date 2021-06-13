@@ -19,3 +19,7 @@ variable "name_tag" {
 variable "vpc_security_group" {
   default = ""
 }
+
+variable "subnet_id" {
+  default = ""
+}
