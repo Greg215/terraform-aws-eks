@@ -16,7 +16,7 @@ module "vpc_sg" {
 
 module "vpc" {
   source = "./vpc"
-  cidr_block = "172.31.208.0/22"
+  cidr_block = "172.31.208.0/22"     #172.31.212.0/22     172.31.216.0/22
 }
 
 module "subnets" {
