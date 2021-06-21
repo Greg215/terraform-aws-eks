@@ -153,7 +153,7 @@ data "aws_iam_instance_profile" "default" {
 }
 
 module "autoscale_group" {
-  source = "./asg"
+  source = "../asg"
   name   = "asg-worker-${var.name}"
 
   image_id                  = var.image_id
