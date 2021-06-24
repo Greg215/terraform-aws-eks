@@ -9,7 +9,7 @@ variable "vpc_id" {
 }
 
 variable "name" {
-  default = "greg-demo-vision"
+  default = "greg-eks-demo-vision"
 }
 
 variable "key_name" {

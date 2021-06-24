@@ -8,12 +8,12 @@ locals {
 }
 
 module "vpc" {
-  source     = "./vpc"
+  source     = "git::git@github.com:Greg215/terraform-demo-vg.git//vpc?ref=main"
   cidr_block = "172.31.208.0/22" #172.31.212.0/22     172.31.216.0/22
 }
 
 module "subnets" {
-  source              = "./subnet"
+  source              = "git::git@github.com:Greg215/terraform-demo-vg.git//subnet?ref=main"
   vpc_id              = module.vpc.vpc_id
   igw_id              = module.vpc.igw_id
   nat_gateway_enabled = false
@@ -21,7 +21,7 @@ module "subnets" {
 
 # load balancer
 module "network_loadbalancer" {
-  source                = "./nlb"
+  source                = "git::git@github.com:Greg215/terraform-demo-vg.git//nlb?ref=main"
   name                  = var.name
   aws_region            = var.aws_region
   vpc_id                = module.vpc.vpc_id
@@ -54,7 +54,7 @@ module "network_loadbalancer" {
 }
 
 module "eks_workers" {
-  source        = "./eks-worker"
+  source        = "git::git@github.com:Greg215/terraform-demo-vg.git//eks-worker?ref=main"
   name          = module.eks_cluster.eks_cluster_id
   key_name      = var.key_name
   image_id      = var.image_id
@@ -80,7 +80,7 @@ module "eks_workers" {
 }
 
 module "eks_cluster" {
-  source     = "./eks-cluster"
+  source     = "git::git@github.com:Greg215/terraform-demo-vg.git//eks-cluster?ref=main"
   name       = var.name
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.subnets.public_subnet_ids
