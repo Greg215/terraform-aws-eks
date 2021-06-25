@@ -18,5 +18,4 @@ terraform {
 provider "aws" {
   region = var.aws_region
   # Provider version 2.X series is the latest, but has breaking changes with 1.X series.
-  version = "~> 2.6"
 }
