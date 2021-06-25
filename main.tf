@@ -26,7 +26,6 @@ module "network_loadbalancer" {
   aws_region            = var.aws_region
   vpc_id                = module.vpc.vpc_id
   vpc_public_subnet_ids = module.subnets.public_subnet_ids
-  //  aws-load-balancer-ssl-cert-arn = "arn:aws:acm:ap-southeast-1:384367358464:certificate/c5e33e2e-2d72-40f5-ae10-751ee7596199"
 
   listeners = [
     {
