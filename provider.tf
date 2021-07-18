@@ -6,12 +6,12 @@
 terraform {
   backend "s3" {
     bucket = "terraform-state-devops-training-bucket"
-    key    = "greg-demo-eks/terraform.tfstate"
+    key    = "greg-demo/terraform.tfstate"
     region = "ap-southeast-1"
   }
   required_version = ">= 0.12.0"
 }
 
 provider "aws" {
-  region  = "ap-southeast-1"
+  region = "ap-southeast-1"
 }

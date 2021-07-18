@@ -8,12 +8,12 @@ locals {
 }
 
 module "vpc" {
-  source     = "git::git@github.com:Greg215/terraform-demo-vg.git//vpc?ref=main"
+  source     = "./vpc"
   cidr_block = "172.31.208.0/22" #172.31.212.0/22     172.31.216.0/22
 }
 
 module "subnets" {
-  source              = "git::git@github.com:Greg215/terraform-demo-vg.git//subnet?ref=main"
+  source              = "./subnet"
   vpc_id              = module.vpc.vpc_id
   igw_id              = module.vpc.igw_id
   nat_gateway_enabled = false
@@ -21,7 +21,7 @@ module "subnets" {
 
 # load balancer
 module "network_loadbalancer" {
-  source                = "git::git@github.com:Greg215/terraform-demo-vg.git//nlb?ref=main"
+  source                = "./nlb"
   name                  = var.name
   aws_region            = var.aws_region
   vpc_id                = module.vpc.vpc_id
@@ -53,7 +53,7 @@ module "network_loadbalancer" {
 }
 
 module "eks_workers" {
-  source        = "git::git@github.com:Greg215/terraform-demo-vg.git//eks-worker?ref=main"
+  source        = "./eks-worker"
   name          = module.eks_cluster.eks_cluster_id
   key_name      = var.key_name
   image_id      = var.image_id
@@ -79,7 +79,7 @@ module "eks_workers" {
 }
 
 module "eks_cluster" {
-  source     = "git::git@github.com:Greg215/terraform-demo-vg.git//eks-cluster?ref=main"
+  source     = "./eks-cluster"
   name       = var.name
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.subnets.public_subnet_ids
@@ -89,4 +89,17 @@ module "eks_cluster" {
 
   workers_role_arns          = [module.eks_workers.workers_role_arn]
   workers_security_group_ids = [module.eks_workers.security_group_id]
+}
+
+module "route53" {
+  source  = "./route53-records"
+  zone_id = "Z07374591FC76OBQXEXUL"
+  type    = "CNAME"
+  records = [
+    {
+      NAME   = "greg215.training.visiontech.com.sg"
+      RECORD = module.network_loadbalancer.dns_name
+      TTL    = "300"
+    },
+  ]
 }

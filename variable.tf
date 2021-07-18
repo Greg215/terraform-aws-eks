@@ -4,12 +4,8 @@ variable "aws_region" {
   default     = "ap-southeast-1"
 }
 
-variable "vpc_id" {
-  default = "vpc-fdcf029b"
-}
-
 variable "name" {
-  default = "greg-eks-demo-vision"
+  default = "greg-eks-demo"
 }
 
 variable "key_name" {
