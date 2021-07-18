@@ -5,7 +5,7 @@
 
 terraform {
   backend "s3" {
-    bucket = "terraform-state-devops-training-bucket"
+    bucket = "terraform-state-scb-bucket"
     key    = "greg-demo/terraform.tfstate"
     region = "ap-southeast-1"
   }
