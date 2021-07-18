@@ -14,6 +14,7 @@ module "vpc" {
 
 module "subnets" {
   source              = "./subnet"
+  eks_cluster_name    = var.name
   vpc_id              = module.vpc.vpc_id
   igw_id              = module.vpc.igw_id
   nat_gateway_enabled = false
