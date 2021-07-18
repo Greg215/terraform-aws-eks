@@ -9,6 +9,7 @@ locals {
 
 module "vpc" {
   source     = "./vpc"
+  name       = var.name
   cidr_block = "172.31.208.0/22" #172.31.212.0/22     172.31.216.0/22
 }
 
