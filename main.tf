@@ -10,7 +10,7 @@ locals {
 module "vpc" {
   source     = "./vpc"
   name       = var.name
-  cidr_block = "172.31.208.0/22" #172.31.212.0/22     172.31.216.0/22
+  cidr_block = var.vpc_cidr
 }
 
 module "subnets" {
@@ -95,11 +95,11 @@ module "eks_cluster" {
 
 module "route53" {
   source  = "./route53-records"
-  zone_id = "Z07374591FC76OBQXEXUL"
+  zone_id = var.route53_zone_id
   type    = "CNAME"
   records = [
     {
-      NAME   = "greg215.training.visiontech.com.sg"
+      NAME   = "greg215.${var.domian}"
       RECORD = module.network_loadbalancer.dns_name
       TTL    = "300"
     },

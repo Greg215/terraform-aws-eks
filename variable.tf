@@ -4,6 +4,24 @@ variable "aws_region" {
   default     = "ap-southeast-1"
 }
 
+variable "vpc_cidr" {
+  description = "The cidr block of the VPC that will be created."
+  type        = string
+  default     = "172.31.208.0/22"
+}
+
+variable "route53_zone_id" {
+  description = "The route53 zone id."
+  type        = string
+  default     = "Z07374591FC76OBQXEXUL"
+}
+
+variable "domian" {
+  description = "The route53 zone id."
+  type        = string
+  default     = "training.visiontech.com.sg"
+}
+
 variable "name" {
   default = "greg-eks-demo"
 }
