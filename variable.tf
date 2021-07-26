@@ -7,19 +7,19 @@ variable "aws_region" {
 variable "vpc_cidr" {
   description = "The cidr block of the VPC that will be created."
   type        = string
-  default     = "172.31.208.0/22"
+  default     = ""
 }
 
 variable "route53_zone_id" {
   description = "The route53 zone id."
   type        = string
-  default     = "Z07374591FC76OBQXEXUL"
+  default     = ""
 }
 
 variable "domian" {
   description = "The route53 zone id."
   type        = string
-  default     = "training.visiontech.com.sg"
+  default     = ""
 }
 
 variable "name" {
@@ -27,7 +27,7 @@ variable "name" {
 }
 
 variable "key_name" {
-  default = "devops-training"
+  default = ""
 }
 
 variable "image_id" {
