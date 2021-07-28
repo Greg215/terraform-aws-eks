@@ -41,7 +41,7 @@ variable "instance_type" {
 variable "min_size" {
   type        = number
   description = "The minimum size of the autoscale group"
-  default     = 2
+  default     = 3
 }
 
 variable "max_size" {
