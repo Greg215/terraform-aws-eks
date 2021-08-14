@@ -28,7 +28,9 @@ module "network_loadbalancer" {
   aws_region            = var.aws_region
   vpc_id                = module.vpc.vpc_id
   vpc_public_subnet_ids = module.subnets.public_subnet_ids
-  aws-load-balancer-ssl-cert-arn = "arn:aws:acm:ap-southeast-1:545573948854:certificate/9e9ef1d3-1913-419f-9a9d-72e4c96acfc4"
+
+  # if enable port 443 make sure below acm enabled
+  aws-load-balancer-ssl-cert-arn = var.aws-load-balancer-ssl-cert-arn
 
   listeners = [
     {

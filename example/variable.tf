@@ -74,3 +74,8 @@ variable "kubernetes_version" {
   description = "Desired Kubernetes master version. If you do not specify a value, the latest available version is used"
 }
 
+variable "aws-load-balancer-ssl-cert-arn" {
+  description = "The ACM arn"
+  type        = string
+  default     = ""
+}
