@@ -35,7 +35,7 @@ variable "image_id" {
 }
 
 variable "instance_type" {
-  default = "t2.small"
+  default = "t2.medium"
 }
 
 variable "min_size" {
@@ -70,7 +70,7 @@ variable "cluster_security_group_ingress_enabled" {
 
 variable "kubernetes_version" {
   type        = string
-  default     = "1.18"
+  default     = "1.19"
   description = "Desired Kubernetes master version. If you do not specify a value, the latest available version is used"
 }
 

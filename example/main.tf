@@ -48,16 +48,7 @@ module "network_loadbalancer" {
         proxy_protocol    = false
         health_check_port = "traffic-port"
       }
-    },
-    {
-      port     = 32000 # hazelcast agent port of dev
-      protocol = "TCP",
-      target_groups = {
-        port              = 32000
-        proxy_protocol    = false
-        health_check_port = "traffic-port"
-      }
-    },
+    }
   ]
 
   # below security group will need to be changed, once we know which port and ip.

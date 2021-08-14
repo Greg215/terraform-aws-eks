@@ -99,7 +99,7 @@ module "route53" {
   type    = "CNAME"
   records = [
     {
-      NAME   = "greg215.${var.domian}"
+      NAME   = "*.${var.domian}"
       RECORD = module.network_loadbalancer.dns_name
       TTL    = "300"
     },
