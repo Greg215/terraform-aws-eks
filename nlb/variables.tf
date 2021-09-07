@@ -2,12 +2,6 @@
 # MODULE PARAMETERS
 # These variables are expected to be passed in by the operator
 # ---------------------------------------------------------------------------------------------------------------------
-
-variable "aws_region" {
-  description = "The AWS region in which all resources will be created"
-  type        = string
-}
-
 variable "vpc_id" {
   description = "The ID of the VPC this NLB will use."
   type        = string

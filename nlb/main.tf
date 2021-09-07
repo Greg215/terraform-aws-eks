@@ -18,10 +18,6 @@ resource "aws_lb_target_group" "target_groups" {
   port              = var.listeners.*.target_groups[count.index].port
   proxy_protocol_v2 = var.listeners.*.target_groups[count.index].proxy_protocol
   protocol          = "TCP"
-//  stickiness {
-//    type    = "lb_cookie"
-//    enabled = false
-//  }
 
   health_check {
     enabled  = true
@@ -34,7 +30,6 @@ resource "aws_lb_target_group" "target_groups" {
     create_before_destroy = true
   }
 }
-
 
 resource "aws_lb_listener" "nlb_listeners" {
   count = length(var.listeners)
